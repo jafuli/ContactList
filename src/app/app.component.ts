@@ -20,17 +20,15 @@ export class AppComponent implements OnInit {
   constructor(private contactService: ContactsService) {}
 
   ngOnInit(): void {
-    // setTimeout(() => {
       this.contactService.getContacts().subscribe(
         contacts => {
           this.contacts = this.displayedContacts = contacts;
           this.isLoading = false;
         }
         );
-      // }, 1000);
 
     this.subjectInput.pipe(
-      debounceTime(500), distinctUntilChanged()
+      debounceTime(60), distinctUntilChanged()
     ).subscribe(value => {
       this.filter(value);
     })

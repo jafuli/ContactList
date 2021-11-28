@@ -22,11 +22,4 @@ export class ContactCardComponent implements OnInit {
     this.mouseIn = !this.mouseIn;
   }
 
-  displayLogo() {
-    let iconUrl = this.contact.icon;
-    if (this.contact.icon) {
-
-    }
-  }
-
 }
