@@ -1,0 +1,17 @@
+<mat-card (mouseenter)="displayPhoneEmail()" (mouseleave)="displayPhoneEmail()">
+  <mat-card-content fxLayout="column" fxLayoutAlign="space-evenly end" [ngClass]="mouseIn ? 'mouseIn' : 'o' ">
+    <div class="photos">
+      <img  class="profile_photo" src='{{contact.profile_image}}'
+        alt="Profile Photo">
+      <img mat-card-avatar class="company_logo" src="{{contact.icon}}" alt="Missing Company Logo" (error)="displayIcon=false" *ngIf="displayIcon">
+    </div>
+    <div class="text">
+      <h4>{{contact.name}}</h4>
+      <h5>{{contact.job}} | @{{contact.company_name}}</h5>
+    </div>
+    <div *ngIf='mouseIn' class="PhoneEmail">
+      <h5>Phone Number: {{contact.phone}}</h5>
+      <h5>{{contact.email}}</h5>
+    </div>
+  </mat-card-content>
+</mat-card>

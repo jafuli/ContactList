@@ -1,0 +1,26 @@
+<mat-toolbar fxLayout="row">
+  <span fxFlex="12" fxFlexOffset="10" class="header">Contact List</span>
+  <span fxFlex="40"></span>
+  <div class="input" fxFlex="33">
+    <form >
+      <mat-form-field appearance="outline">
+        <input matInput type="search" placeholder="search..." (input)="onSearch($event)">
+        <mat-icon class="searchIcon" matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-toolbar>
+<div class="gallery">
+  <section fxLayout="row wrap" fxLayoutGap="10px grid" *ngIf="!isLoading">
+     <app-contact-card fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let contact of displayedContacts" [contact]="contact">
+      </app-contact-card>
+
+    </section>
+      <section fxLayoutAlign="center" *ngIf="!isLoading && displayedContacts.length == 0">
+        <h1>No Results Found...</h1>
+      </section>
+
+  <section fxLayoutAlign="center" *ngIf="isLoading">
+    <mat-spinner diameter="180"></mat-spinner>
+  </section>
+</div>
